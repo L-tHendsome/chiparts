@@ -1,0 +1,5 @@
+node_modules/ 
+venv/ 
+orders.log 
+.env 
+__pycache__/ 
