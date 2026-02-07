@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
         :root {
             --primary-color: #e74c3c;
             --secondary-color: #2c3e50;
@@ -21,9 +20,7 @@
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
-        
         body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
-        
         header {
             background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
             color: white;
@@ -36,27 +33,10 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
         }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo-image {
-            height: 60px;
-            width: auto;
-        }
-        
-        .logo-image img {
-            height: 100%;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-        }
-        
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo-image { height: 60px; width: auto; }
+        .logo-image img { height: 100%; width: auto; max-width: 100%; object-fit: contain; }
         .header-actions { display: flex; align-items: center; gap: 1rem; }
-        
         .telegram-btn {
             background: #0088cc;
             color: white;
@@ -75,7 +55,6 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
             background: #006699;
         }
-        
         .order-btn {
             background: var(--success-color);
             color: white;
@@ -95,9 +74,7 @@
             box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
             background: #27ae60;
         }
-        
         main { max-width: 1400px; margin: 0 auto; padding: 2rem 5%; }
-        
         .hero {
             text-align: center;
             margin-bottom: 3rem;
@@ -107,25 +84,7 @@
             position: relative;
             overflow: hidden;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/images/hero/hero-bg.jpg') no-repeat center center;
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
+        .hero-content { position: relative; z-index: 1; }
         .hero h1 {
             font-size: 2.8rem;
             margin-bottom: 1.2rem;
@@ -138,14 +97,12 @@
             margin: 0 auto 2rem;
             color: var(--dark-color);
         }
-        
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
         .btn {
             display: inline-block;
             background: var(--primary-color);
@@ -170,7 +127,6 @@
         .btn-accent:hover { color: var(--accent-color); }
         .btn-bot { background: #54a0ff; border-color: #54a0ff; display: inline-flex; align-items: center; gap: 0.7rem; }
         .btn-bot:hover { color: #54a0ff; }
-        
         .carousel-container {
             position: relative;
             max-width: 1200px;
@@ -180,73 +136,61 @@
             box-shadow: var(--shadow);
             margin-bottom: 3rem;
         }
-        
         .carousel {
             display: flex;
             transition: transform 0.5s ease;
         }
-        
         .carousel-slide {
             min-width: 100%;
             padding: 2rem;
             background: white;
             border-radius: 10px;
         }
-        
         .carousel-content {
             display: flex;
             align-items: center;
             gap: 2rem;
         }
-        
         .carousel-image {
             flex: 1;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
         .carousel-image img {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 0.3s ease;
         }
-        
         .carousel-image:hover img {
             transform: scale(1.05);
         }
-        
         .carousel-text {
             flex: 1;
         }
-        
         .carousel-text h2 {
             font-size: 2.2rem;
             margin-bottom: 1rem;
             color: var(--secondary-color);
         }
-        
         .carousel-text p {
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
             color: var(--dark-color);
         }
-        
         .price {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
             margin: 1rem 0;
         }
-        
         .carousel-controls {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin-top: 2rem;
         }
-        
         .carousel-btn {
             width: 40px;
             height: 40px;
@@ -261,13 +205,11 @@
             color: var(--dark-color);
             transition: var(--transition);
         }
-        
         .carousel-btn:hover {
             background: var(--secondary-color);
             color: white;
             transform: scale(1.1);
         }
-        
         .advantages {
             background: white;
             padding: 3rem 0;
@@ -275,7 +217,6 @@
             border-radius: 15px;
             box-shadow: var(--shadow);
         }
-        
         .advantages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -284,29 +225,24 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
         .advantage-card {
             text-align: center;
             padding: 1.5rem;
             transition: var(--transition);
         }
-        
         .advantage-card:hover {
             transform: translateY(-5px);
         }
-        
         .advantage-icon {
             font-size: 3rem;
             color: var(--accent-color);
             margin-bottom: 1rem;
         }
-        
         .advantage-card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.8rem;
             color: var(--secondary-color);
         }
-        
         .order-section {
             background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
@@ -330,7 +266,6 @@
         .order-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
         .order-section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
         .order-section p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
-        
         .bot-link {
             display: inline-flex;
             align-items: center;
@@ -350,13 +285,11 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         .bot-link i { font-size: 1.8rem; }
-        
         .or-divider {
             margin: 1.5rem 0;
             font-size: 1.2rem;
             opacity: 0.8;
         }
-        
         .order-form {
             background: rgba(255, 255, 255, 0.95);
             color: var(--dark-color);
@@ -365,18 +298,15 @@
             max-width: 600px;
             margin: 0 auto;
         }
-        
         .form-group {
             margin-bottom: 1.5rem;
             text-align: left;
         }
-        
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
-        
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -387,7 +317,6 @@
             font-size: 1rem;
             transition: var(--transition);
         }
-        
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -395,12 +324,10 @@
             border-color: var(--accent-color);
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
-        
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
-        
         .submit-btn {
             width: 100%;
             padding: 1rem;
@@ -414,12 +341,10 @@
             transition: var(--transition);
             margin-top: 0.5rem;
         }
-        
         .submit-btn:hover {
             background: #c0392b;
             transform: translateY(-2px);
         }
-        
         footer {
             background: var(--secondary-color);
             color: white;
@@ -454,7 +379,6 @@
             opacity: 0.8;
             font-size: 0.95rem;
         }
-        
         .modal {
             display: none;
             position: fixed;
@@ -467,7 +391,6 @@
             align-items: center;
             justify-content: center;
         }
-        
         .modal-content {
             background: white;
             border-radius: 15px;
@@ -477,12 +400,10 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             animation: modalFadeIn 0.4s ease;
         }
-        
         @keyframes modalFadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
         .close-modal {
             position: absolute;
             top: 1rem;
@@ -493,7 +414,6 @@
             color: #95a5a6;
             cursor: pointer;
         }
-        
         .success-message {
             text-align: center;
             padding: 2rem;
@@ -503,7 +423,6 @@
             font-size: 4rem;
             margin-bottom: 1rem;
         }
-        
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 1rem; padding: 1rem; }
             .header-actions { width: 100%; justify-content: center; flex-wrap: wrap; }
@@ -518,7 +437,7 @@
     <header>
         <div class="logo-container">
             <div class="logo-image">
-                <img src="/images/logo/logo.png" alt="ChiParts Logo">
+                <img src="https://i.imgur.com/1dQdJ9l.png" alt="ChiParts Logo">
             </div>
         </div>
         <div class="header-actions">
@@ -550,7 +469,7 @@
                 <div class="carousel-slide">
                     <div class="carousel-content">
                         <div class="carousel-image">
-                            <img src="/images/cars/pic1.jpg" alt="Красный Chery Tiggo 7">
+                            <img src="https://i.imgur.com/1YhY2dA.jpg" alt="Красный Chery Tiggo 7">
                         </div>
                         <div class="carousel-text">
                             <h2>Двигатели Chery</h2>
@@ -563,7 +482,7 @@
                 <div class="carousel-slide">
                     <div class="carousel-content">
                         <div class="carousel-image">
-                            <img src="/images/cars/pic2.jpg" alt="Красный Geely Coolray">
+                            <img src="https://i.imgur.com/9x2cQjK.jpg" alt="Красный Geely Coolray">
                         </div>
                         <div class="carousel-text">
                             <h2>Масло и фильтры Geely</h2>
@@ -576,7 +495,7 @@
                 <div class="carousel-slide">
                     <div class="carousel-content">
                         <div class="carousel-image">
-                            <img src="/images/cars/pic3.jpg" alt="Chery в лесу">
+                            <img src="https://i.imgur.com/0YvXQ3Z.jpg" alt="Chery в лесу">
                         </div>
                         <div class="carousel-text">
                             <h2>Кузовные детали</h2>
@@ -722,24 +641,14 @@
                 } else {
                     currentSlide = index;
                 }
-                
                 carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
             }
             
-            prevBtn.addEventListener('click', () => {
-                showSlide(currentSlide - 1);
-            });
+            prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+            setInterval(() => showSlide(currentSlide + 1), 5000);
             
-            nextBtn.addEventListener('click', () => {
-                showSlide(currentSlide + 1);
-            });
-            
-            // Автоматическая смена слайдов
-            setInterval(() => {
-                showSlide(currentSlide + 1);
-            }, 5000);
-            
-            // Модальное окно успеха
+            // Модальное окно
             const successModal = document.getElementById('successModal');
             const closeSuccessModalBtn = document.getElementById('closeSuccessModal');
             const closeSuccessBtn = document.getElementById('closeSuccessBtn');
@@ -768,6 +677,7 @@
                 });
             });
             
+            // Отправка заявки
             submitQuickOrderBtn.addEventListener('click', async function(e) {
                 e.preventDefault();
                 
@@ -780,13 +690,10 @@
                     return;
                 }
                 
-                // Отправка на сервер (автоматически определит путь)
                 try {
                     const response = await fetch('/api/order', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             name: name,
                             phone: phone,
@@ -803,16 +710,16 @@
                     if (data.success) {
                         document.getElementById('quickOrderForm').reset();
                         openSuccessModal();
-                        console.log('Заявка успешно отправлена:', data);
                     } else {
                         alert('Ошибка при отправке заявки: ' + (data.message || 'Неизвестная ошибка'));
                     }
                 } catch (error) {
                     console.error('Ошибка:', error);
-                    alert('Не удалось отправить заявку. Убедитесь, что сервер запущен.');
+                    alert('Не удалось отправить заявку. Проверьте подключение к интернету.');
                 }
             });
             
+            // Форматирование телефона
             document.getElementById('quickPhone').addEventListener('input', function(e) {
                 let value = e.target.value.replace(/\D/g, '');
                 if (value.length > 1 && value[0] === '8') value = '7' + value.substring(1);

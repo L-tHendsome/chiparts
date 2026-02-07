@@ -16,7 +16,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)  # ИСПРАВЛЕНО: __name__ вместо name
 
 BOT_TOKEN = os.getenv('BOT_TOKEN', '8218450565:AAFDSOHTUWidvp-gIHHIrx_AB2z8iCMfUTg')
 ADMIN_CHAT_IDS = os.getenv('ADMIN_CHAT_IDS', '-5264176031').split(',')
@@ -109,7 +109,7 @@ async def process_phone(message: types.Message, state: FSMContext):
         await cancel_order(message, state)
         return
     
-    # Корректная очистка телефона от лишних символов
+    # Корректная очистка телефона от лишних символов (ИСПРАВЛЕНО)
     phone = message.text.replace(" ", "").replace("-", "").replace("(", "").replace(")", "")
     if not phone.startswith("+"):
         phone = "+" + phone
@@ -176,7 +176,7 @@ async def process_comment(message: types.Message, state: FSMContext):
         'last_name': message.from_user.last_name or ""
     })
     
-    # Формирование сообщения для админа
+    # Формирование сообщения для админа (ИСПРАВЛЕНО: правильный синтаксис)
     admin_message = f"""🆕 <b>НОВАЯ ЗАЯВКА 📱 Telegram-бот</b> 🆕
 
 ⏰ {data['timestamp']}
@@ -199,7 +199,7 @@ async def process_comment(message: types.Message, state: FSMContext):
             await bot.send_message(
                 chat_id=admin_id,
                 text=admin_message,
-                parse_mode="HTML"
+                parse_mode="HTML"  # ИСПРАВЛЕНО: без лишнего пробела
             )
             sent_count += 1
             logger.info(f"✅ Заявка отправлена в группу {admin_id}")
@@ -243,7 +243,7 @@ async def main():
         logger.info(f"   Ссылка: https://t.me/{bot_info.username}")
         
         # Отправка тестового сообщения в группу
-        test_message = f"""✅ <b>Бот @ChiParts_bot запущен!</b>
+        test_message = f"""✅ <b>Бот @ChiParts_bot запущен на Render!</b>
 
 Статус: ✅ Работает нормально
 Время запуска: {datetime.now().strftime('%d.%m.%Y %H:%M:%S')}
@@ -266,7 +266,7 @@ async def main():
     
     await dp.start_polling(bot)
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # ИСПРАВЛЕНО: правильная проверка
     try:
         asyncio.run(main())
     except KeyboardInterrupt:

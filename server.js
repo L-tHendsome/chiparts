@@ -10,20 +10,18 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000; // Render использует порт из переменной окружения
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-
-// Раздача статических файлов из папки public
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // Раздача статики из папки public
 
 // Настройки Telegram
 const BOT_TOKEN = process.env.BOT_TOKEN || '8218450565:AAFDSOHTUWidvp-gIHHIrx_AB2z8iCMfUTg';
 const ADMIN_CHAT_IDS = (process.env.ADMIN_CHAT_IDS || '-5264176031').split(',');
 
-// Логирование заявок в файл
+// Логирование заявок в файл (на Render файлы временные, но для отладки оставим)
 const LOG_FILE = path.join(__dirname, 'orders.log');
 
 function logOrder(order) {
@@ -161,13 +159,18 @@ app.get('/api/stats', (req, res) => {
     }
 });
 
-// Главная страница
+// Главная страница — отдаём статический файл
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Catch-all для остальных путей (для корректной работы одностраничника)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Запуск сервера
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log('╔════════════════════════════════════════════════════════════╗');
     console.log('║                                                            ║');
     console.log('║         🚀 ChiParts - Сервер запущен успешно!            ║');
@@ -186,11 +189,12 @@ app.listen(PORT, () => {
     
     // Отправка тестового сообщения в группу
     const testMessage = `
-✅ <b>Сервер ChiParts запущен!</b>
+✅ <b>Сервер ChiParts запущен на Render!</b>
 
 Статус: ✅ Работает нормально
 Время запуска: ${new Date().toLocaleString('ru-RU')}
 Порт: ${PORT}
+URL: https://${process.env.RENDER_EXTERNAL_URL || 'localhost'}
 
 Сервер готов принимать заявки с сайта.
     `;

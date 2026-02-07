@@ -1,5 +1,7 @@
-node_modules/ 
-venv/ 
-orders.log 
-.env 
-__pycache__/ 
+node_modules/
+venv/
+orders.log
+.env
+__pycache__/
+*.pyc
+.DS_Store
